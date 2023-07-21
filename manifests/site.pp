@@ -16,7 +16,7 @@ node 'master.puppet' {
       mode      => '0644',
       ensure    => file,
       path      => '/etc/nginx/nginx.conf',
-      source    => '/vagrant/slave/nginx.conf',
+      source    => '/vagrant/master/nginx.conf',
  }
 ~> service {
     'nginx':
