@@ -1,3 +1,18 @@
+node 'master.puppet' {
+  package {
+    'nginx':
+        name => nginx,
+        ensure => installed,
+  }
+-> nginx::resource::server { 'static':
+  listen_port => 80,
+  proxy       => 'http://192.168.34.11',
+}
+-> nginx::resource::server { 'dynamic':
+  listen_port => 81,
+  proxy       => 'http://192.168.34.12',
+}
+}
 node 'slave1.puppet' {
   package {
     'httpd':
