@@ -4,12 +4,14 @@ node 'master.puppet' {
         name => nginx,
         ensure => installed,
   }
--> nginx::resource::location{'/static':
-    proxy => 'http://192.168.34.11/' ,
-   }
--> nginx::resource::location{'/dynamic':
-    proxy => 'http://192.168.34.12/' ,
-   }
+->   file {
+    'nginx config':
+      owner     => 'root',
+      group     => 'root',
+      mode      => '0644',
+      path      => '/etc/nginx/nginx.conf',
+      content   => 'vagrant/slave/nginx.conf';
+ }
 ~> service {
     'nginx':
         ensure => true,
