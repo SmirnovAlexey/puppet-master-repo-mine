@@ -4,6 +4,17 @@ node 'master.puppet' {
         name => nginx,
         ensure => installed,
   }
+-> nginx::resource::location{'/static':
+    proxy => 'http://192.168.34.11/' ,
+   }
+-> nginx::resource::location{'/dynamic':
+    proxy => 'http://192.168.34.12/' ,
+   }
+~> service {
+    'nginx':
+        ensure => true,
+        enable => true,
+   }   
 }
 node 'slave1.puppet' {
   package {
