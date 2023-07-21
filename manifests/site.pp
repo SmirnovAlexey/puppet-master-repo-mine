@@ -4,6 +4,11 @@ node 'master.puppet' {
         name => nginx,
         ensure => installed,
   }
+-> firewall { 'allow http access':
+  port   => 80,
+  proto  => tcp,
+  action => accept,
+}  
 ->   file {
     'nginx config':
       owner     => 'root',
