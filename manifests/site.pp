@@ -9,6 +9,7 @@ node 'master.puppet' {
       owner     => 'root',
       group     => 'root',
       mode      => '0644',
+      ensure    => file,
       path      => '/etc/nginx/nginx.conf',
       content   => 'vagrant/slave/nginx.conf';
  }
