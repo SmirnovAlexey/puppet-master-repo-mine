@@ -1,15 +1,15 @@
 node 'master.puppet' {
+  
   package {
     'nginx':
         name => nginx,
         ensure => installed,
   }
-->   firewalld_port { 'Open port 8080 in the public zone':
-    ensure   => present,
-    zone     => 'public',
-    port     => 80,
-    protocol => 'tcp',
-  }  
+->   firewall { '80':
+  dport    => 80,
+  proto    => 'tcp',
+  action   => 'accept',
+}  
 ->   file {
     'nginx config':
       owner     => 'root',
