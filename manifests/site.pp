@@ -1,5 +1,5 @@
 node 'master.puppet' {
-  
+  class { 'firewall': }
   package {
     'nginx':
         name => nginx,
