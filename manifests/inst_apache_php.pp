@@ -7,7 +7,7 @@ class inst_apache_php {
   file { 'index.php':
    ensure => file,
    path   => "/var/www/html/index.php",
-   source => "/vagrant/slave/index.php"
-   notify => Service['httpd']
+   source => "/vagrant/slave/index.php",
+   notify => Service['httpd'],
  }
 }
