@@ -1,7 +1,7 @@
 class inst_apache_php {
   include apache
   class { 'apache::mod::php':
-    php_version => '7.4'
+    php_version => '7.2'
   }
 
   file { 'index.php':
