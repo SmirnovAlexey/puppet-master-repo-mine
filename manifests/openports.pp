@@ -1,4 +1,4 @@
-class openport {
+class openports {
     class { 'firewall': }
     firewall { '100 open tcp port 80':
       port => 80,
