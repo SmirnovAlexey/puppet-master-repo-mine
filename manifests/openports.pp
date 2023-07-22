@@ -5,13 +5,13 @@ class openports {
       proto => 'tcp',
       action => 'accept',
     }
-    firewall { '100 open tcp port 81':
-      port => 81,
+    firewall { '100 open tcp port 8081':
+      port => 8081,
       proto => 'tcp',
       action => 'accept',
     }
-    firewall { '100 open tcp port 82':
-      port => 82,
+    firewall { '100 open tcp port 8082':
+      port => 8082,
       proto => 'tcp',
       action => 'accept',
     }
