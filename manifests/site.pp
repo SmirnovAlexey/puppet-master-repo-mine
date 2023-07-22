@@ -1,6 +1,6 @@
 node 'master.puppet' {
   include nginx
-  
+  ->
   file { 'nginx config':
     owner     => 'root',
     group     => 'root',
@@ -9,8 +9,9 @@ node 'master.puppet' {
     path      => '/etc/nginx/nginx.conf',
     source    => '/vagrant/master/nginx.conf',
   }
-
+  ->
   class { 'firewall': }
+  ->
   firewall { 'allow port 80/tcp':
     dport    => 80,
     proto    => 'tcp',
