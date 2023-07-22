@@ -11,8 +11,9 @@ class inst_nginx {
     notify    => Service['nginx'],
   } 
   
-  service { 'nginx':
+  nginx::service { 'nginx':
         ensure => true,
         enable => true,
+        restart => true,
   }
 }
