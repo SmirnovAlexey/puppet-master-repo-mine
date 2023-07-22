@@ -1,9 +1,9 @@
 class openport (
-  $port = 80
+  $numport = 80
 ) {
     class { 'firewall': }
     firewall { '100 open tcp port':
-      port => $port,
+      port => $numport,
       proto => 'tcp',
       action => 'accept',
     }
