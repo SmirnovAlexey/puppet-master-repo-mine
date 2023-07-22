@@ -10,10 +10,4 @@ class inst_nginx {
     source    => '/vagrant/master/nginx.conf',
     notify    => Service['nginx'],
   } 
-  
-  nginx::service { 'nginx':
-        ensure => true,
-        enable => true,
-        restart => true,
-  }
 }
