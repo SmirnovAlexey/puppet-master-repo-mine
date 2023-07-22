@@ -1,14 +1,5 @@
 node 'master.puppet' {
-  include nginx
-  ->
-  file { 'nginx config':
-    owner     => 'root',
-    group     => 'root',
-    mode      => '0644',
-    ensure    => file,
-    path      => '/etc/nginx/nginx.conf',
-    source    => '/vagrant/master/nginx.conf',
-  }
+  include inst_nginx
   class { 'openport': }
 }
 node 'slave1.puppet' {
