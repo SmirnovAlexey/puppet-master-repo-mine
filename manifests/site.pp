@@ -8,24 +8,6 @@ node 'slave1.puppet' {
 }
 
 node 'slave2.puppet' {
-  package {
-    'httpd':
-        name => httpd,
-        ensure => installed,
-  }
-  -> package {
-    'php':
-        name => php,
-        ensure => installed,
-  }
--> file { 'index.php':
-          ensure => file,
-          path   => "/var/www/html/index.php",
-          source => "/vagrant/slave/index.php"
- }
-~> service {
-    'httpd':
-        ensure => true,
-        enable => true,
-  }
+  include inst_apache_php
+  include openport
 }
