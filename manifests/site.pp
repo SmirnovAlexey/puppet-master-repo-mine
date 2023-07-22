@@ -1,6 +1,14 @@
 node 'master.puppet' {
   include inst_nginx
-  include openport
+  class { 'openport':
+    port => 80
+  }
+  class { 'openport':
+    port => 81
+  }
+  class { 'openport':
+    port => 82
+  }
 }
 node 'slave1.puppet' {
   package {
