@@ -9,5 +9,9 @@ class inst_nginx {
     path      => '/etc/nginx/conf.d/default.conf',
     source    => '/vagrant/master/nginx.conf',
   } 
-  
+  ~> service {
+    'nginx':
+        ensure => true,
+        enable => true,
+  }
 }
