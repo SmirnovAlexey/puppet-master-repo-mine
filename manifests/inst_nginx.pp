@@ -1,15 +1,14 @@
 class inst_nginx {
   include nginx
-  nginx::resource::location { "static":
-    server         => 'default',
-    ensure         => present,
-    location       => '/static',
-    fastcgi        => "192.168.33.10",
+  
+  nginx::resource::server { 'static':
+    listen_port => 81,
+    proxy       => 'http://192.168.33.11',
   } 
-  nginx::resource::location { "dynamic":
-    server         => 'default',
-    ensure         => present,
-    location       => '/dynamic',
-    fastcgi        => "192.168.33.11",
+  
+  nginx::resource::server { 'dynamic':
+    listen_port => 82,
+    proxy       => 'http://192.168.33.12',
   } 
+  
 }
