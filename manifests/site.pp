@@ -2,6 +2,7 @@ node 'master.puppet' {
   include inst_nginx
   include openport
 }
+
 node 'slave1.puppet' {
   include inst_apache
   include openport
