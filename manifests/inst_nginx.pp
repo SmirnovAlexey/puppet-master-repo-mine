@@ -7,7 +7,7 @@ class inst_nginx {
     mode      => '0644',
     ensure    => file,
     path      => '/etc/nginx/conf.d/default.conf',
-    source    => 'puppet:///modules/profiles/nginx.conf',
+    source    => '/vagrant/master/nginx.conf',
   } 
   
 }
