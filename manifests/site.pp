@@ -1,29 +1,22 @@
 node 'master.puppet' {
-  class { 'firewall': }
-  package {
-    'nginx':
-        name => nginx,
-        ensure => installed,
+  include nginx
+  
+  file { 'nginx config':
+    owner     => 'root',
+    group     => 'root',
+    mode      => '0644',
+    ensure    => file,
+    path      => '/etc/nginx/nginx.conf',
+    source    => '/vagrant/master/nginx.conf',
   }
-->   firewall { '80':
-  dport    => 80,
-  proto    => 'tcp',
-  action   => 'accept',
-}  
-->   file {
-    'nginx config':
-      owner     => 'root',
-      group     => 'root',
-      mode      => '0644',
-      ensure    => file,
-      path      => '/etc/nginx/nginx.conf',
-      source    => '/vagrant/master/nginx.conf',
- }
-~> service {
-    'nginx':
-        ensure => true,
-        enable => true,
-   }   
+
+  class { 'firewall': }
+  firewall { 'allow port 80/tcp':
+    dport    => 80,
+    proto    => 'tcp',
+    action   => 'accept',
+  }
+ 
 }
 node 'slave1.puppet' {
   package {
