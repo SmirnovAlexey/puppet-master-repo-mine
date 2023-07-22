@@ -4,6 +4,7 @@ node 'master.puppet' {
 }
 node 'slave1.puppet' {
   include inst_apache
+  include openport
 }
 
 node 'slave2.puppet' {
