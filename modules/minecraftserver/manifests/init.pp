@@ -12,7 +12,7 @@ class minecraftserver {
     require => File['/opt/minecraft'],
   }
 
-  file { 'minecraft_service':
+  file { 'minecraft_service_sh':
     path => "/opt/minecraft/service.sh",
     mode => "755",
     source => "puppet:///modules/minecraftserver/service.sh",
@@ -27,7 +27,7 @@ class minecraftserver {
 
   service { 'minecraft':
     ensure => running,
-    require => File['minecraft_service'],
+    require => File['minecraft_service', 'minecraft_service_sh'],
   }
 
 }
