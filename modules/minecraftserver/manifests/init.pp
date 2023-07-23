@@ -33,6 +33,7 @@ class minecraftserver {
 
   service { 'minecraft':
     ensure => running,
+    enable => true,
     require => File['minecraft_service', 'minecraft_service_sh'],
   }
 
