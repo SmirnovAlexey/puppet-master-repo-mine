@@ -16,7 +16,7 @@ node 'slave2.puppet' {
 node 'mineserver.puppet' {
   class { 'java' :
     distribution => 'jdk',
-    version      => 'latest',
+    version      => '17',
   }
   include minecraftserver
 }
