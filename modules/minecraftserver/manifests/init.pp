@@ -13,6 +13,13 @@ class minecraftserver {
   }
 
   file { 'minecraft_service':
+    path => "/opt/minecraft/service.sh",
+    mode => "755",
+    source => "puppet:///modules/minecraftserver/service.sh",
+    notify => Service['minecraft'],
+  }
+
+  file { 'minecraft_service':
     path => "/etc/systemd/system/minecraftserver.service",
     source => "puppet:///modules/minecraftserver/minecraftserver.service",
     notify => Service['minecraft'],
