@@ -19,6 +19,12 @@ class minecraftserver {
     notify => Service['minecraft'],
   }
 
+  file { 'eula.txt':
+    path => "/opt/minecraft/eula.txt",
+    source => "puppet:///modules/minecraftserver/eula.txt",
+    notify => Service['minecraft'],
+  }
+
   file { 'minecraft_service':
     path => "/etc/systemd/system/minecraftserver.service",
     source => "puppet:///modules/minecraftserver/minecraftserver.service",
