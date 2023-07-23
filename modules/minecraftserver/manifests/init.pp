@@ -1,5 +1,10 @@
 class minecraftserver {
-
+  package { 'java 17':
+    ensure => 'installed',
+    source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+    provider => 'rpm'
+  }
+  
   file { '/opt/minecraft':
     ensure => directory,
     before => File['minecraft'],
@@ -34,7 +39,7 @@ class minecraftserver {
   service { 'minecraft':
     ensure => running,
     enable => true,
-    require => File['minecraft_service', 'minecraft_service_sh'],
+    require => [File['minecraft', 'minecraft_service', 'minecraft_service_sh', 'eula.txt'], Package ['java 17']],
   }
 
 }
