@@ -1,0 +1,10 @@
+[Unit]
+Description=Minecaft Server
+
+[Service]
+WorkingDirectory=/opt/minecraft
+ExecStart=java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
