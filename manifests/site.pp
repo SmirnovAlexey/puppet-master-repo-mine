@@ -15,7 +15,8 @@ node 'slave2.puppet' {
 
 node 'mineserver.puppet' {
   class { 'java' :
-    package => 'openjdk-17-jdk',
+    distribution => 'jdk',
+    version      => 'latest',
   }
   include minecraftserver
 }
