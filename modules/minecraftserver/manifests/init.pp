@@ -14,7 +14,7 @@ class minecraftserver {
 
   file { 'minecraft_service':
     path => "/etc/systemd/system/minecraftserver.service",
-    source => "puppet:///modules/minecraft/minecraftserver.service",
+    source => "puppet:///modules/minecraftserver/minecraftserver.service",
     notify => Service['minecraft'],
   }
 
