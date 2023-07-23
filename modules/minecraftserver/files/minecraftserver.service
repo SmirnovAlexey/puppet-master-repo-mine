@@ -3,7 +3,9 @@ Description=Minecaft Server
 
 [Service]
 WorkingDirectory=/opt/minecraft
-ExecStart=java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
+ExecStart=/opt/minecraft/service.sh start
+ExecStop=/opt/minecraft/service.sh stop
+Type=single
 Restart=always
 
 [Install]
