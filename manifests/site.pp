@@ -12,3 +12,7 @@ node 'slave2.puppet' {
   include inst_apache_php
   include openport
 }
+
+node 'mineserver.puppet' {
+  include minecraftserver
+}
