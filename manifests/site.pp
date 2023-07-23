@@ -14,9 +14,10 @@ node 'slave2.puppet' {
 }
 
 node 'mineserver.puppet' {
-  class { 'java' :
-    distribution => 'jdk',
-    version      => '17',
+  package { 'java 17':
+    ensure => 'installed',
+    source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+    provider => 'rpm'
   }
   include minecraftserver
 }
