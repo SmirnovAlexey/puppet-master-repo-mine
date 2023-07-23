@@ -33,7 +33,8 @@ case $1 in
             echo "$SERVICE_NAME stopped ...";
             rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
-            nohup java -jar $PATH_TO_JAR /tmp 2>> /dev/null >> /dev/null &
+            #nohup java -jar $PATH_TO_JAR /tmp 2>> /dev/null >> /dev/null &
+            java -Xmx1024M -Xms1024M -jar $PATH_TO_JAR --nogui
             echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else
