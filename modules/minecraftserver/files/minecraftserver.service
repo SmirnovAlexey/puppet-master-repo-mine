@@ -5,7 +5,7 @@ Description=Minecaft Server
 WorkingDirectory=/opt/minecraft
 ExecStart=/opt/minecraft/service.sh start
 ExecStop=/opt/minecraft/service.sh stop
-Type=single
+Type=simple
 Restart=always
 
 [Install]
