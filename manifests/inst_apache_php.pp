@@ -1,9 +1,6 @@
 class inst_apache_php {
   include apache
   class { 'apache::mod::php': }
-#  class { 'apache::mod::php':
-#    php_version => '7.2'
-#  }
 
   file { 'index.php':
    ensure => file,
