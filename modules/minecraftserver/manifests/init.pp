@@ -1,10 +1,16 @@
 class minecraftserver {
+#  package { 'java 17':
+#    ensure => 'installed',
+#    source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
+#    name   => 'jdk-17_linux-x64_bin.rpm',
+#    provider => 'rpm'
+#  }
+
   package { 'java 17':
+    name => 'java-latest-openjdk.x86_64',
     ensure => 'installed',
-    source => 'https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm',
-    name   => 'jdk-17_linux-x64_bin.rpm',
-    provider => 'rpm'
-  }
+    provider => 'dnf'
+  }  
   
   file { '/opt/minecraft':
     ensure => directory,
