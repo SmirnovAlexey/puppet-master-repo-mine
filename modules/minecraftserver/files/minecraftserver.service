@@ -1,10 +1,18 @@
 [Unit]
-Description=Minecraft server
+Description=Minecraft Server
+After=network.target
 
 [Service]
+Nice=1
+KillMode=none
+SuccessExitStatus=0 1
+ProtectHome=true
+ProtectSystem=full
+PrivateDevices=true
+NoNewPrivileges=true
 WorkingDirectory=/opt/minecraft
-ExecStart=java -Xmx512M -Xms512M -jar server.jar nogui
-Restart=always
+ExecStart=/usr/bin/java -Xmx1024M -Xms512M -jar server.jar nogui
+ExecStop=/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p strong-password stop
 
 [Install]
 WantedBy=multi-user.target
