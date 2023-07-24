@@ -13,7 +13,7 @@ class minecraftserver {
   package { 'java 17':
     name => '/opt/minecraft/java-17.rpm',
     ensure => 'installed',
-    provider => 'dnf'
+    provider => 'yum'
   }  
   
   file { '/opt/minecraft':
