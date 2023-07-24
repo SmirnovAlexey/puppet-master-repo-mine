@@ -1,0 +1,13 @@
+[Unit]
+Description=Minecaft Server
+
+[Service]
+WorkingDirectory=/opt/minecraft
+ExecStart=/opt/minecraft/service.sh start
+ExecStop=/opt/minecraft/service.sh stop
+Restart=always
+RestartSec=30
+StandardInput=null
+
+[Install]
+WantedBy=multi-user.target
