@@ -22,13 +22,6 @@ class minecraftserver {
     require => File['/opt/minecraft'],
   }
 
-  file { 'minecraft_service_sh':
-    path => "/opt/minecraft/service.sh",
-    mode => "755",
-    source => "puppet:///modules/minecraftserver/service.sh",
-    notify => Service['minecraft'],
-  }
-
   file { 'eula.txt':
     path => "/opt/minecraft/eula.txt",
     source => "puppet:///modules/minecraftserver/eula.txt",
@@ -45,7 +38,7 @@ class minecraftserver {
     name => 'minecraftserver',
     ensure => running,
     enable => true,
-    require => [File['minecraft', 'minecraft_service', 'minecraft_service_sh', 'eula.txt'], Package['java 17'],],
+    require => [File['minecraft', 'minecraft_service', 'eula.txt'], Package['java 17'],],
   }
 
 }
