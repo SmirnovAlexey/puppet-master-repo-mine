@@ -1,13 +1,10 @@
 [Unit]
-Description=Minecaft Server
+Description=Minecraft server
 
 [Service]
 WorkingDirectory=/opt/minecraft
-ExecStart=/opt/minecraft/service.sh start
-ExecStop=/opt/minecraft/service.sh stop
+ExecStart=java -Xmx512M -Xms512M -jar server.jar nogui
 Restart=always
-RestartSec=30
-StandardInput=null
 
 [Install]
 WantedBy=multi-user.target
