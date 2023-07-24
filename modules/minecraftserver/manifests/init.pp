@@ -6,8 +6,12 @@ class minecraftserver {
 #    provider => 'rpm'
 #  }
 
+  file { 'java 17 rpm':
+    path => "/opt/minecraft/java-17.rpm",
+    source => "https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm",
+  } ->
   package { 'java 17':
-    name => 'java-latest-openjdk.x86_64',
+    name => '/opt/minecraft/java-17.rpm',
     ensure => 'installed',
     provider => 'dnf'
   }  
