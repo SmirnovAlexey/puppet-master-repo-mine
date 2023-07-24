@@ -48,6 +48,7 @@ class minecraftserver {
   }
 
   service { 'minecraft':
+    name => 'minecraftserver',
     ensure => running,
     enable => true,
     require => [File['minecraft', 'minecraft_service', 'minecraft_service_sh', 'eula.txt'], Package['java 17'],],
